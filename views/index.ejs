@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <%- include('layouts/head') %>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+    body {
+        background-image: url('https://nxm-clw-cdn.dn.nexoncdn.co.kr/bluearchive/img/events/2024/04/live_1dk292g/section2/bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: "Noto Sans Thai", sans-serif;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .main {
+        margin: 3% 26%;
+        /* border: 1px solid black; */
+
+    }
+
+    .index-content-info {
+        padding: 10px;
+    }
+
+    .image0chibi img {
+        width: 300px;
+        height: 350px;
+    }
+
+    .image0chibi {
+
+        width: 300px;
+        height: 350px;
+        float: right;
+        margin-top: 27%;
+        margin-bottom: 3%;
+
+    }
+
+    .box-1 {
+        border: 1px solid black;
+        margin: 5px;
+
+        text-align: center;
+        align-items: center;
+        width: 300px;
+        height: auto;
+        transition: transform 0.3s ease-in;
+        border-radius: 5px;
+    }
+    .box-1 img {
+        width: 100%;
+    }
+
+    .box-1:hover {
+        transform: scale(1.05);
+    }
+
+    .box-content {
+        display: flex;
+        padding: 5px;
+
+    }
+
+    .text-box h3 {
+        text-align: left;
+
+        width: 100%;
+        /* background-color: aliceblue; */
+        margin-bottom: 0%;
+        text-align: center;
+        height: 100%;
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <%- include('layouts/nav') %>
+        <div class="main">
+            <div class="container">
+                <div class="index-info">
+                    <h1>Welcome to ...</h1>
+                </div>
+                <div class="index-content-info">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum accusamus assumenda voluptate, soluta
+                    tempore ullam aliquid nam laboriosam cupiditate nisi corrupti magni ex repellendus possimus
+                    reiciendis. Dolor odit eligendi possimus.
+                </div>
+            </div>
+            <br>
+            <div class="box-content">
+                <a href="/webboard/new-question">
+                    <div class="box-1">
+                        <img src="https://jarvis.dn.nexoncdn.co.kr/bluearchive/gb/20240308/20240308065913610-9da8974230cf4985a67f7136ed19be77.png"
+                            alt="">
+                        <div class="text-box">
+                            <h3>ตั้งคำถามใหม่</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/webboard/show-all-questions">
+                    <div class="box-1">
+                        <img src="https://jarvis.dn.nexoncdn.co.kr/bluearchive/gb/20240308/20240308065913610-9da8974230cf4985a67f7136ed19be77.png"
+                            alt="">
+                        <div class="text-box">
+                            <h3>Abydos High School</h3>
+                        </div>
+                    </div>
+                </a>
+                <a onclick="alert('ยังไม่พร้อมใช้งานนนน')" href="">
+                    <div class="box-1">
+                        <img src="https://jarvis.dn.nexoncdn.co.kr/bluearchive/gb/20240308/20240308065913610-9da8974230cf4985a67f7136ed19be77.png"
+                            alt="">
+                        <div class="text-box">
+                            <h3>อยู่ระหว่างพัฒนา</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- <div class="image0chibi">
+                <img src="https://nxm-clw-cdn.dn.nexoncdn.co.kr/bluearchive/img/events/2024/03/festival_3okew9/news/char2.png" alt="">
+            </div> -->
+        </div>
+        <script>
+            // function alert(){
+
+            // }
+        </script>
+        <%- include('layouts/footer') %>
+</body>
+
+</html>

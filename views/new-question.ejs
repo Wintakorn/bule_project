@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <%- include('layouts/head') %>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+            form {
+                /* border: 1px solid black; */
+                font-weight: bold;
+                font-family: "Noto Sans Thai", sans-serif;
+            }
+
+            input[type="text"],
+            textarea {
+                margin-bottom: 10px;
+                margin-top: 5px;
+            }
+
+            #img_captcha {
+                cursor: pointer;
+            }
+
+            div.alert {
+                width: 450px;
+            }
+
+            .new-question {
+                margin: 4% 26%;
+            }
+
+            .new-question {
+                /* border: 1px solid black; */
+            }
+
+            .input-text input {
+                border-radius: 5px;
+                padding: 5px;
+            }
+
+            .input-text {
+                padding: 10px;
+            }
+
+            .header-question {
+                text-align: center;
+
+            }
+
+            .text-area {
+                padding: 10px;
+            }
+
+            .text-area textarea {
+                padding: 5px;
+            }
+
+            .upload-file {
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+                gap: 50px;
+            }
+
+            .upload-file input {
+                margin-left: 3%;
+
+            }
+
+            #drop-zone {
+                width: 500px;
+                height: 300px;
+                border: 2px dashed #ccc;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #aaa;
+                font-size: 16px;
+            }
+
+            #drop-zone.dragover {
+                border-color: #333;
+                color: #333;
+            }
+
+            .Picture_char {
+                padding: 10px;
+
+            }
+
+            .Picture_char input {
+                margin-right: 20px;
+            }
+
+            .File-right-info {
+                margin-left: 3%;
+
+            }
+
+            .Img_captcha {
+                border: 1px solid black;
+                text-align: center;
+            }
+
+            .input_char input {
+                padding: 5px;
+                margin: 0px 0px 0px 0px;
+            }
+
+            .input_char {
+                margin-top: 3%;
+            }
+
+            .Img_captcha img {
+                width: 100%;
+            }
+
+            .input_char p {
+                padding-top: 10px;
+            }
+
+            .user-name {
+                label {
+                    padding-left: 7px;
+                }
+
+                .button-data {
+                    width: 100px;
+                    border-radius: 5px;
+                    margin-bottom: 5px;
+                }
+            }
+        </style>
+</head>
+
+<body
+    style="background-image: url('https://nxm-clw-cdn.dn.nexoncdn.co.kr/bluearchive/img/events/2024/04/live_1dk292g/section2/bg.jpg');  background-size: cover; background-repeat: no-repeat; ">
+    <%- include('layouts/nav') %>
+        <% if (locals.msg) { %>
+            <div class="alert alert-warning alert-dismissible fade show mx-auto">
+                <%= msg %>
+                    <span class="close" data-dismiss="alert" aria-hidden="true">&times;</span>
+            </div>
+            <% } %>
+                <% let data=locals.data || {} %>
+
+                    <form class="new-question" method="post" action="/webboard/new-question"
+                        enctype="multipart/form-data">
+
+                        <div class="header-question">
+                            <h1>ตั้งคำถาม</h1>
+                        </div>
+                        <div class="input-text">
+                            <p>ข้อความที่จะโพส</p>
+                            <input placeholder="โปรดกรอกข้อความ" type="text" name="question" maxlength="150"
+                                value="<%= data.question || '' %>" required class="w-100 form form-input">
+                        </div>
+                        <div class="text-area">
+                            <p>รายละเอียด</p>
+                            <textarea placeholder="เขียน Comment" name="detail" rows="3" class="w-100"
+                                required><%= data.detail || '' %></textarea>
+                        </div>
+                        <div class="upload-file">
+                            <div type="file" name="upfile" accept="image/*" id="drop-zone">Drag and drop files here
+                            </div>
+                            <div class="File-right-info">
+                                <input type="file" name="upfile" accept="image/*" id="file-input">
+                                <div class="Picture_char">
+                                    <div class="Img_captcha">
+                                        <img src="/captcha" id="img_captcha"
+                                            onclick="this.src=this.src+'?'+Math.random()"><br>
+                                        <span>คลิกที่ภาพเพื่อโหลดใหม่</span>
+                                    </div>
+                                    <div class="input_char">
+                                        <span>อักขระที่ปรากฏในภาพ</span><br>
+                                        <input placeholder="เขียนอักขระที่ปรากฏ" type="text" name="captcha" required>
+                                    </div>
+                                </div>
+
+                                <div class="user-name">
+                                    <label>ชื่อของท่าน</label><br>
+                                    <div class="" style="display: flex; gap: 20px; align-items:center;">
+                                        <input type="text" name="questioner" maxlength="30"
+                                            value="<%= data.questioner || '' %>" required>
+                                        <button class="button-data">ส่งข้อมูล</button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <script>
+                            const dropZone = document.getElementById('drop-zone');
+                            const fileInput = document.getElementById('file-input');
+
+                            dropZone.addEventListener('dragover', (event) => {
+                                event.preventDefault();
+                                dropZone.classList.add('dragover');
+                            });
+
+                            dropZone.addEventListener('dragleave', () => {
+                                dropZone.classList.remove('dragover');
+                            });
+
+                            dropZone.addEventListener('drop', (event) => {
+                                event.preventDefault();
+                                dropZone.classList.remove('dragover');
+
+                                const files = event.dataTransfer.files;
+                                if (files.length > 0) {
+                                    fileInput.files = files; // ส่งไฟล์ที่ลากและวางไปที่ input file
+                                }
+                            });
+
+                        </script>
+                    </form>
+
+                    </div>
+                    <%- include('layouts/footer') %>
+</body>
+
+</html>
+
+
+
+<!-- <div class="form">
+                            <form method="post" action="/webboard/new-question" enctype="multipart/form-data"
+                                class="text-left p-3">
+                                <label>คำถาม</label><br>
+                                <input type="text" name="question" maxlength="150" value="<%= data.question || '' %>"
+                                    required class="w-100 form form-input"><br>
+
+                                <label>รายละเอียด</label><br>
+                                <textarea name="detail" rows="3" class="w-100"
+                                    required><%= data.detail || '' %></textarea><br>
+
+                                <label>ภาพประกอบ (ถ้ามี)</label><br>
+                                <input type="file" name="upfile" accept="image/*"><br><br>
+
+                                <div class="d-inline-block">
+                                    <label>อักขระที่ปรากฏในภาพ</label><br>
+                                    <input type="text" name="captcha" required>
+                                </div>
+
+                                <div class="float-right mr-4">
+                                    <img src="/captcha" id="img_captcha"
+                                        onclick="this.src=this.src+'?'+Math.random()"><br>
+                                    <span>คลิกที่ภาพเพื่อโหลดใหม่</span>
+                                </div>
+
+                                <div class="mt-3">
+                                    <label>ชื่อของท่าน</label><br>
+                                    <input type="text" name="questioner" maxlength="30"
+                                        value="<%= data.questioner || '' %>" required>
+                                    <button class="btn btn-sm btn-primary ml-5">ส่งข้อมูล</button>
+                                </div>
+                            </form> 
+                    </div>-->
+<!-- <div id="container" class="my-5 pt-4 mx-auto text-center">
+
+                        <h1 class="mb-3">ตั้งคำถามใหม่</h1>
+                        <form method="post" action="/webboard/new-question" enctype="multipart/form-data"
+                            class="text-left p-3">
+                            <label>คำถาม</label><br>
+                            <input type="text" name="question" maxlength="150" value="<%= data.question || '' %>"
+                                required class="w-100 form form-input"><br>
+
+                            <label>รายละเอียด</label><br>
+                            <textarea name="detail" rows="3" class="w-100"
+                                required><%= data.detail || '' %></textarea><br>
+
+                            <label>ภาพประกอบ (ถ้ามี)</label><br>
+                            <input type="file" name="upfile" accept="image/*"><br><br>
+
+                            <div class="d-inline-block">
+                                <label>อักขระที่ปรากฏในภาพ</label><br>
+                                <input type="text" name="captcha" required>
+                            </div>
+
+                            <div class="float-right mr-4">
+                                <img src="/captcha" id="img_captcha" onclick="this.src=this.src+'?'+Math.random()"><br>
+                                <span>คลิกที่ภาพเพื่อโหลดใหม่</span>
+                            </div>
+
+                            <div class="mt-3">
+                                <label>ชื่อของท่าน</label><br>
+                                <input type="text" name="questioner" maxlength="30" value="<%= data.questioner || '' %>"
+                                    required>
+                                <button class="btn btn-sm btn-primary ml-5">ส่งข้อมูล</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    </div> -->
