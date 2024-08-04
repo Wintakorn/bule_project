@@ -129,7 +129,7 @@ app.get('/webboard/question-detail-and-answers/:id', (request, response) => {
 
         let options = {
             page: request.query.page || 1,
-            limit: 5
+            limit: 4
         }
 
         Answer.paginate(q, options, (err, result) => {
