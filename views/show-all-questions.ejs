@@ -2,6 +2,7 @@
 <html lang="th">
 
 <head>
+    <script src="scoll.js"></script>
     <%- include('layouts/head') %>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -137,6 +138,28 @@
                 width: 100%;
                 height: auto;
             }
+            .Click-to-top{
+                width: 109px;
+                height: auto;
+                margin-left: 92%;
+                
+                
+                
+            }
+            .Click-to-top {
+                position: fixed;
+                bottom: 50px;
+                right: 30px;
+                display: none; 
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .Click-to-top.visible {
+                display: block;
+                opacity: 1;
+            }
+
         </style>
 </head>
 
@@ -209,12 +232,15 @@
 
                                 <% } %>
                         </tbody>
-                    </div>
+                    </div>  
                     <div class="pageLink">
                         <p> <%- pageLink %></p>                     
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="Click-to-top">
+            <img onclick="scrollToTop()" src="https://nxm-clw-cdn.dn.nexoncdn.co.kr/bluearchive/img/events/2024/03/festival_3okew9/btn_go-top.png" alt="">
         </div>
         <%- include('layouts/footer') %>
 </body>
@@ -223,38 +249,3 @@
 
 
 
-<!-- <h1 class="text-center">คำถามทั้งหมด</h1>
-<br>
-<% if (locals.data) { %>
-<table class="table table-bordered">
-<thead class="table-dark">
-    <tr><th>วันเดือนปี</th><th>คำถาม</th><th>ผู้ถาม</th><th>คำตอบ</th></tr>
-</thead>
-<tbody>
-    <%
-    const m = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 
-                'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 
-                'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม']
-
-    for (d of data) {
-        let dt = new Date(Date.parse(d.date_posted))
-        let df = `${dt.getDate()} ${m[dt.getMonth()]} ${dt.getFullYear() + 543}`
-    %>
-        <tr>
-            <td><%= df %></td>
-            <td>
-                <a href="/webboard/question-detail-and-answers/<%= d._id %>"><%= d.question %></a></td>
-            <td><%= d.questioner %></td>
-            <td><%= d.num_answers %></td>
-        </tr>
-    <% } %>
-</tbody>
-</table>
-<a href="/webboard/new-question" class="btn btn-primary btn-sm" style="height: 50px; text-align: center; padding-top: 13px;">ตั้งหน้ากระทู้ใหม่</a>
-
-
-
-<div class="text-center mt-3 my-5">
-    <%- pageLink %>    
-</div>
-<% } %> -->

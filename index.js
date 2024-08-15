@@ -1,8 +1,6 @@
-
 const models = require('./models')
 const Question = models.Question
 const Answer = models.Answer
-
 const express = require('express')
 const ejs = require('ejs')
 const bodyParser = require('body-parser')
@@ -25,8 +23,12 @@ app.use(session({
 
 app.get('/', (request, response) => {
     response.render('index')
+   
 })
-
+// app.get('/Log_in', (request, response) => {
+//     response.render('Log_in')
+   
+// })
 app.get('/captcha', (request, response) => {
 	let captcha = svgCaptcha.create({size: 5, noise: 3, background: '#fff'})
 	request.session.captcha = captcha.text
@@ -93,7 +95,7 @@ app.get('/webboard/show-all-questions', (request, response) => {
     let q = Question.find().sort('-date_posted')    //เอาคำถามล่าสุดขึ้นก่อน
     let options = {
         page: request.query.page || 1,
-        limit: 3
+        limit: 5,
     }
 
     Question.paginate(q, options, (err, result) => {

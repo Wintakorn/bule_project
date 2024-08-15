@@ -1,170 +1,258 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <%- include('layouts/head') %>
-    <style>
-        /* #container {
-            width: 600px;
-        }
-        div#question-container {
-            background-color: powderblue;
-        }
+        <style>
+            .Question {
+                margin: 5% 20%;
+                height: auto;
+                background-color: #5656565d;
+                border-radius: 5px;
+                padding: 20px;
+                padding-left: 30px;
 
-        h6#question {
-            color: navy;
-            font-weight: bold;
-        }
-        #question_image {
-            max-width: 400px;
-            max-height: 300px;
-        }
-
-        div.answer {
-            background-color: #def;
-        }
-        div.questioner, div.answerer {
-            border-top: 1px dotted gray;
-        }
-        span.date-posted {
-            display: block;
-            margin-left: 20px;
-            color:gray;
-            font-size: smaller;
-            float: right;
-        } */
-
-        .Question{
-            margin: 5% 20%;
-            height: auto;
-            background-color: #5656565d;
-            border-radius: 5px;
-            padding: 40px;
-            padding-left: 30px;
-            h1{
-                color: #fff;
-            }
-            .header{
-                background-color: aliceblue;
-            }
-        .Discription{
-                padding-top: 20px;
-
-                p{
+                h1 {
                     color: #fff;
-                    font-size: 24px;
+                    margin-bottom: 15px;
+                }
+
+                .header {
+                    background-color: aliceblue;
+                }
+
+                .Discription {
+                    padding-top: 20px;
+                    /* width: 600px;
+                    height: 354px; */
+
+                    img {
+                        /* width: 100%;
+                        height: 100%; */
+                    }
+
+                    p {
+                        color: #fff;
+                        font-size: 24px;
+                    }
                 }
             }
-        }
-        .Comment{
-            margin: 0% 20%;
-            border:  1px solid gray;
-        }
-        .comment_info{
-            padding: 10px;
-            background-color: #5656565d;
-            height: auto;
-        }
-       .answer{
-        border: 1px solid gray;
 
-        p{
-            color: #fff;
-            font-size: 24px;
-            margin-bottom: 0%;
-           padding: 5px; 
-        }
-       }
-      .btn_back{
-        height: 40px;
-        width: 70px ;
-        font-size: 24px;
-        
-      }
-    </style>
+            .Comment {
+                margin: 0% 20%;
+                border: 1px solid black;
+                border-top-left-radius: 20px;
+                box-shadow: rgba(0, 0, 0, 0.178) 5px 5px;
+            }
+
+            .comment_info {
+                padding: 10px;
+
+                height: auto;
+                margin: 10px;
+            }
+
+            .answer {
+                border: 1px solid gray;
+
+                p {
+                    color: #fff;
+                    font-size: 24px;
+                    margin-bottom: 0%;
+                    padding: 5px;
+                }
+            }
+
+            .btn_back {
+                height: 40px;
+                width: 70px;
+                font-size: 34px;
+
+            }
+
+            .Page-link {
+                padding: 10px;
+                background-color: #333;
+                text-align: center;
+
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                }
+
+            }
+
+            .Comment-Header {
+                border-top-left-radius: 20px;
+                background-color: #0d6efd;
+                color: #fff;
+                padding: 5px;
+                text-decoration: none;
+                margin-bottom: 10px;
+            }
+
+            .Comment {
+                .Box-comment {
+                    padding: 5px;
+                    background-color: #3333335b;
+
+                    border-radius: 5px;
+                    margin: 10px;
+                }
+
+                .Comment-input {
+                    margin-bottom: 10px;
+                    padding: 0px 10px 0px;
+
+
+                    input {
+                        height: 50px;
+                        width: 100%;
+                        border-radius: 5px;
+                        border: none;
+                        color: #fff;
+                        background-color: #a5a7aa00;
+
+
+
+                        input:focus {
+                            border-bottom: #fff;
+                            /* border: none; */
+                        }
+                    }
+                }
+            }
+
+            .no-border {
+                border: none;
+            }
+
+            .no-border:focus {
+                outline: none;
+                border: none;
+            }
+        </style>
 </head>
-<body  style="background-image: url('https://nxm-clw-cdn.dn.nexoncdn.co.kr/bluearchive/img/events/2024/01/update_l123ow/bg.jpg');  background-size: cover; background-repeat: no-repeat; ">
-<%- include('layouts/nav') %>
-<%
-function dateFormat(date) {
-    const m = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 
-    'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 
-    'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม']
 
-    let dt = new Date(Date.parse(date))
-    return `${dt.getDate()} ${m[dt.getMonth()]} ${dt.getFullYear() + 543}`
-}
-%>
+<body
+    style="background-image: url('https://nxm-clw-cdn.dn.nexoncdn.co.kr/bluearchive/img/events/2024/01/update_l123ow/bg.jpg');  background-size: cover; background-repeat: no-repeat; ">
+    <%- include('layouts/nav') %>
+        <% function dateFormat(date) { const m=['มกราคม', 'กุมภาพันธ์' , 'มีนาคม' , 'เมษายน' , 'พฤษภาคม' , 'มิถุนายน'
+            , 'กรกฎาคม' , 'สิงหาคม' , 'กันยายน' , 'ตุลาคม' , 'พฤศจิกายน' , 'ธันวาคม' ] 
+            let dt=new Date(Date.parse(date))
+            return `${dt.getDate()} ${m[dt.getMonth()]} ${dt.getFullYear() + 543}` } %>
 
 
-<div class="Container">   
-    <div class="Question">
-        <h1><%= data_question.question %></h1>
-        <div id="question_detail" class="Discription">
-            <% if (data_question.image_file != '') { %>
-                <img id="question_image" src="/webboard-images/<%= data_question.image_file %>">
-            <% } %>
-            <p style="padding-top: 5px;">
-                <%= data_question.detail %>
-            </p>
-   
-            <div class="questioner small mt-3 pt-2">
-                <%= data_question.questioner %>
-                <span class="date-posted">[ <%= dateFormat(data_question.date_posted) %> ]</span>
-            </div>
-        </div>
-    </div>
-    <div class="Comment">
-        <div class="comment_info">
-            <div id="answers_container">
-                <% for (a of data_answers) { %>
-                    <div class="answer">
-                        <p>user <%= a.answerer %>:  <%= a.answer %></p>
-                        <div class="small answerer mt-3 pt-2">
-                            <p><%= a.answerer %> : [ <%= dateFormat(a.date_posted) %> ]</p>
+            <div class="Container">
+                <div class="Question">
+                    <h1>
+                        <%= data_question.question %>
+                    </h1>
+                    <div id="question_detail" class="Discription" style=" padding-top: 0%; margin: 10px 0px 10px;">
+                        <% if (data_question.image_file !='' ) { %>
+                            <img id="question_image" src="/webboard-images/<%= data_question.image_file %>">
+                            <% } %>
+                    </div>
+                    <div class="" style="display: flex; justify-content: space-between; color: #fff; margin-top: 10px;">
+                        <div class="">
+                            <p>
+                                <%= data_question.detail %>
+                            </p>
+                        </div>
+                        <div class="questioner small ">
+                            user: <%= data_question.questioner %>
+                                <span class="date-posted">[ <%= dateFormat(data_question.date_posted) %>
+                                        ]</span>
                         </div>
                     </div>
-                <% } %>
-            </div>
-            <div class="mt-3 mb-4 text-right">
-                <button class="btn btn-sm btn-primary px-5" 
-                    data-toggle="modal" data-target="#modalAnswer">ตอบกลับ</button>
-            </div>
-            <a class="btn_back" style="text-decoration: none;" href="/webboard/show-all-questions">          
-                Back
-            </a>
-        </div>
-   
-        <div class="text-center p-2">
-            <%- pageLink %>    
-        </div>
-    </div>
-   
-    <div id="modalAnswer" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">ตอบกลับ</h5>
-                    <button class="close" data-dismiss="modal">
-                        <span aria-hidden="true">&times;</span></button>
                 </div>
-                <div class="modal-body mb-3">
-                    <form method="post" action="/webboard/post-answer">
-                        <input type="hidden" name="question_id" value="<%= data_question._id %>">
-                        <label for="answer">คำตอบ:</label><br>
-                        <textarea id="answer" name="answer" rows="4" class="w-100" required></textarea><br>
-                        <label for="answerer">ชื่อ:</label><br>
-                        <input type="text" id="answerer" name="answerer" required>
-                        <button class="btn btn-sm btn-primary float-right mr-3" 
-                            onclick="document.querySelector('form').submit()">ตกลง</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-   </div>
-   <!-- End Modal -->
-   
-   <%- include('layouts/footer') %>
-   </body>
-</html>
+                <div class="Comment">
+                    <div class="Comment-Header">
+                        <h1>Comment</h1>
+                    </div>
+                    <div class="Box-comment">
+                        <div class="Comment-input">
+                            <input name="question_id" class="no-border" placeholder="เขียนคำตอบ.." type="text"
+                                maxlength="150">
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 0px 10px 0px;">
+                            <div>
+                                😂 🧏 😊 🤣
+                            </div>
+                            <form method="post" action="/webboard/post-answer">
+                                <div style="color: #fff;">
+                                    <svg onclick="alert('Login pls')" xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" fill="currentColor" class="bi bi-cursor" viewBox="0 0 16 16">
+                                        <path
+                                            d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z" />
+                                    </svg>
+                                </div>
+                            </form>
 
+                        </div>
+                    </div>
+
+                    <div class="comment_info">
+                        <div id="answers_container">
+                            <% for (a of data_answers) { %>
+                                <div class="answer">
+                                    <p>user <%= a.answerer %>: <%= a.answer %>
+                                    </p>
+                                    <div class="small answerer mt-3 pt-2">
+                                        <p>
+                                            <%= a.answerer %> : [ <%= dateFormat(a.date_posted) %> ]
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <div class="mt-3 mb-4 text-right">
+                                    <button class="btn btn-sm btn-primary px-5" data-toggle="modal"
+                                        data-target="#modalAnswer">ตอบกลับ</button>
+                                </div>
+                                <% } %>
+                        </div>
+
+                        <a class="btn_back" style="text-decoration: none;" href="/webboard/show-all-questions">
+                            Back
+                        </a>
+                    </div>
+
+                    <div class="Page-link" style="background-color: #0d6efd;">
+                        <a href="">
+                            <%- pageLink %>
+                        </a>
+                    </div>
+                </div>
+                <!--  madal -->
+                <div id="modalAnswer" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">ตอบกลับ</h5>
+                                <button class="close" data-dismiss="modal">
+                                    <span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body mb-3">
+                                <form method="post" action="/webboard/post-answer">
+                                    <input type="hidden" name="question_id" value="<%= data_question._id %>">
+                                    <label for="answer">คำตอบ:</label><br>
+                                    <textarea id="answer" name="answer" rows="4" class="w-100" required></textarea><br>
+                                    <label for="answerer">ชื่อ:</label><br>
+                                    <input type="text" id="answerer" name="answerer" required>
+                                    <button class="btn btn-sm btn-primary float-right mr-3"
+                                        onclick="document.querySelector('form').submit()">ตกลง</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Modal -->
+
+            <%- include('layouts/footer') %>
+</body>
+
+</html>
