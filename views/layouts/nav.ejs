@@ -1,41 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
- 
-</head>
-<body>
-   <style>
-   .navigation{
-    font-size: 24px;
-   }
-   </style>
-</body>
-</html>
-<div class="navigation">
-    <nav id="nav" class="navbar navbar-expand fixed-top navbar-dark bg-info p-2">
-        <span style="padding-left: 10px; font-size: 32px;" class="navbar-brand">Node.js</span>
-        <ul class="navbar-nav ml-5">
-            <li class="nav-item mr-3">
-                <a class="nav-link active" href="/">หน้าแรก</a>
-            </li>
-            
-            <li class="nav-item dropdown mr-3">
-                <a href="#" class="nav-link active dropdown-toggle" data-toggle="dropdown">เว็บบอร์ด</a>
-                <div class="dropdown-menu">
-                    <a href="/webboard/show-all-questions" class="dropdown-item">คำถามทั้งหมด</a>
-                    <a href="/webboard/new-question" class="dropdown-item">ตั้งคำถามใหม่</a>
-                </div>
-            </li>
-        
-            <li class="nav-item mr-3">
-                <a class="nav-link active" href="#">ติดต่อเรา</a>
-            </li>  
-        </ul>
-    </nav>
-</div> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,6 +9,11 @@
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+    * {
+        padding: 0%;
+        margin: 0%;
+    }
 
     .navigation {
         padding: 5px;
@@ -68,6 +35,9 @@
         height: 68px;
     }
 
+    a{
+        text-decoration: none;
+    }
     .nav-a a {
         color: #565a81;
         font-size: 20px;
@@ -83,25 +53,26 @@
 
     .nav_link_1 {
         margin-right: 1%;
-        margin-left: 55%;
+        margin-left: 51%;
         background-color: #00000021;
-        
-        a{
+
+        a {
             color: #ffffff;
         }
-        
-      
+
+
         height: 35px;
         width: auto;
-      
+
         text-align: center;
 
-        p:hover{
-           color: red; 
+        p:hover {
+            color: red;
         }
 
     }
-    .nav_link_1 p{
+
+    .nav_link_1 p {
         width: 100%;
     }
 
@@ -110,14 +81,15 @@
         border: 1px solid rgba(0, 0, 0, 0.185);
         height: 35px;
         width: auto;
-        
+
         text-align: center;
 
-        a{
+        a {
             color: #ffffff;
-            p:hover{
-           color: red; 
-        }
+
+            p:hover {
+                color: red;
+            }
         }
     }
 </style>
@@ -138,21 +110,28 @@
 
             <div class="nav_link_1" style="display: flex; ">
                 <div class="" style=" border: 1px solid rgba(0, 0, 0, 0.185);">
-                    <a href="https://www.youtube.com/watch?v=W8ghAhwLars&list=RDGMEMXdNDEg4wQ96My0DhjI-cIg&start_radio=1&rv=sAuEeM_6zpk" target="_blank">
+                    <a href="https://www.youtube.com/watch?v=W8ghAhwLars&list=RDGMEMXdNDEg4wQ96My0DhjI-cIg&start_radio=1&rv=sAuEeM_6zpk"
+                        target="_blank">
                         <p style="padding: 5px;">youtube</p>
                     </a>
-                  
+
                 </div>
                 <div class="" style=" border: 1px solid rgba(0, 0, 0, 0.185);">
-                    <a href="https://www.youtube.com/watch?v=W8ghAhwLars&list=RDGMEMXdNDEg4wQ96My0DhjI-cIg&start_radio=1&rv=sAuEeM_6zpk" target="_blank">
+                    <a href="https://www.youtube.com/watch?v=W8ghAhwLars&list=RDGMEMXdNDEg4wQ96My0DhjI-cIg&start_radio=1&rv=sAuEeM_6zpk"
+                        target="_blank">
                         <p style="padding: 5px;">Facebook</p>
                     </a>
                 </div>
             </div>
             <div class="nav_link_2">
-                <a href="https://www.youtube.com/watch?v=W8ghAhwLars&list=RDGMEMXdNDEg4wQ96My0DhjI-cIg&start_radio=1&rv=sAuEeM_6zpk" target="_blank">
+                <a href="https://www.youtube.com/watch?v=W8ghAhwLars&list=RDGMEMXdNDEg4wQ96My0DhjI-cIg&start_radio=1&rv=sAuEeM_6zpk"
+                    target="_blank">
                     <p style="padding: 5px;">Community</p>
                 </a>
+            </div>
+            <div class="profile"
+                style="margin-left: 25px; border: 1px solid black; border-radius: 10px; padding: 10px;">
+                Profile
             </div>
         </div>
     </div>
