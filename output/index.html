@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop: Webboard</title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+    body {
+        background-image: url('https://nxm-clw-cdn.dn.nexoncdn.co.kr/bluearchive/img/events/2024/04/live_1dk292g/section2/bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: "Noto Sans Thai", sans-serif;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .main {
+        margin: 3% 26%;
+        /* border: 1px solid black; */
+
+    }
+
+    .index-content-info {
+        padding: 10px;
+    }
+
+    .image0chibi img {
+        width: 300px;
+        height: 350px;
+    }
+
+    .image0chibi {
+
+        width: 300px;
+        height: 350px;
+        float: right;
+        margin-top: 27%;
+        margin-bottom: 3%;
+
+    }
+
+    .box-1 {
+        border: 1px solid black;
+        margin: 5px;
+
+        text-align: center;
+        align-items: center;
+        width: 300px;
+        height: auto;
+        transition: transform 0.3s ease-in;
+        border-radius: 5px;
+    }
+
+    .box-1 img {
+        width: 100%;
+    }
+
+    .box-1:hover {
+        transform: scale(1.05);
+    }
+
+    .box-content {
+        display: flex;
+        padding: 5px;
+
+    }
+
+    .text-box h3 {
+        text-align: left;
+
+        width: 100%;
+        /* background-color: aliceblue; */
+        margin-bottom: 0%;
+        text-align: center;
+        height: 100%;
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+</head>
+<body>
+   <style>
+   .navigation{
+    font-size: 24px;
+   }
+   </style>
+</body>
+</html>
+<div class="navigation">
+    <nav id="nav" class="navbar navbar-expand fixed-top navbar-dark bg-info p-2">
+        <span style="padding-left: 10px; font-size: 32px;" class="navbar-brand">Node.js</span>
+        <ul class="navbar-nav ml-5">
+            <li class="nav-item mr-3">
+                <a class="nav-link active" href="/">หน้าแรก</a>
+            </li>
+            
+            <li class="nav-item dropdown mr-3">
+                <a href="#" class="nav-link active dropdown-toggle" data-toggle="dropdown">เว็บบอร์ด</a>
+                <div class="dropdown-menu">
+                    <a href="/webboard/show-all-questions" class="dropdown-item">คำถามทั้งหมด</a>
+                    <a href="/webboard/new-question" class="dropdown-item">ตั้งคำถามใหม่</a>
+                </div>
+            </li>
+        
+            <li class="nav-item mr-3">
+                <a class="nav-link active" href="#">ติดต่อเรา</a>
+            </li>  
+        </ul>
+    </nav>
+</div> -->
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+    </head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        .navigation {
+            padding: 5px;
+            background-color: hsla(0, 0%, 100%, .85);
+
+            /* align-items: center; */
+        }
+
+        .main-nav {
+            display: flex;
+        }
+
+        .logo {
+            margin-left: 10px;
+        }
+
+        .logo img {
+            width: 78px;
+            height: 68px;
+        }
+
+        .nav-a a {
+            color: #565a81;
+            font-size: 20px;
+            text-decoration: none;
+            padding: 0px 20px 0px;
+            font-weight: bold;
+            font-family: "Noto Sans Thai", sans-serif;
+        }
+
+        .nav-a {
+            margin-left: 20px;
+        }
+
+        .nav_link_1 {
+            margin-right: 1%;
+            margin-left: 55%;
+            background-color: #00000021;
+            color: #ffffff;
+
+            height: 35px;
+            width: auto;
+
+            text-align: center;
+
+        }
+
+        .nav_link_1 p {
+            width: 100%;
+        }
+
+        .nav_link_2 {
+            background-color: #00000021;
+
+            color: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.185);
+            height: 35px;
+            width: auto;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+
+    </html>
+
+    <body>
+        <div class="navigation">
+            <div class="main-nav" style=" align-items: center; ">
+                <div class="logo">
+                    <img src="https://nxm-clw-cdn.dn.nexoncdn.co.kr/bluearchive/img/events/2024/03/festival_3okew9/bi.png"
+                        alt="">
+                </div>
+                <div class="nav-a">
+                    <a style="color: #4aa2f5;" href="/">Home</a>
+                    <a href=""> News</a>
+                    <a href="">รายการ</a>
+                    <a href="">โรงเรียน</a>
+                </div>
+
+                <div class="nav_link_1" style="display: flex; ">
+                    <div class="" style=" border: 1px solid rgba(0, 0, 0, 0.185);">
+                        <p style="padding: 5px;">youtube</p>
+                    </div>
+                    <div class="" style=" border: 1px solid rgba(0, 0, 0, 0.185);">
+                        <p style="padding: 5px;">fackbook</p>
+                    </div>
+                </div>
+                <div class="nav_link_2">
+                    <p>
+                        Community
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="container">
+                <div class="index-info">
+                    <h1>Welcome to ...</h1>
+                </div>
+                <div class="index-content-info">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum accusamus assumenda voluptate, soluta
+                    tempore ullam aliquid nam laboriosam cupiditate nisi corrupti magni ex repellendus possimus
+                    reiciendis. Dolor odit eligendi possimus.
+                </div>
+            </div>
+            <br>
+            <div class="box-content">
+                <a href="/webboard/new-question">
+                    <div class="box-1">
+                        <img src="https://jarvis.dn.nexoncdn.co.kr/bluearchive/gb/20240308/20240308065913610-9da8974230cf4985a67f7136ed19be77.png"
+                            alt="">
+                        <div class="text-box">
+                            <h3>ตั้งคำถามใหม่</h3>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/webboard/show-all-questions">
+                    <div class="box-1">
+                        <img src="https://jarvis.dn.nexoncdn.co.kr/bluearchive/gb/20240308/20240308065913610-9da8974230cf4985a67f7136ed19be77.png"
+                            alt="">
+                        <div class="text-box">
+                            <h3>Abydos High School</h3>
+                        </div>
+                    </div>
+                </a>
+                <a onclick="alert('ยังไม่พร้อมใช้งานนนน')" href="">
+                    <div class="box-1">
+                        <img src="https://jarvis.dn.nexoncdn.co.kr/bluearchive/gb/20240308/20240308065913610-9da8974230cf4985a67f7136ed19be77.png"
+                            alt="">
+                        <div class="text-box">
+                            <h3>อยู่ระหว่างพัฒนา</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+        <script>
+
+        </script>
+        <footer class="text-center py-2">
+
+            &copy; 2024 developerthai.com - All rights reserved
+
+
+        </footer>
+    </body>
+
+</html>
