@@ -1,0 +1,75 @@
+const { Client, GatewayIntentBits } = require('discord.js');
+
+// สร้าง instance ของ client ใหม่
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
+
+// เมื่อ client พร้อมใช้งาน
+client.once('ready', () => {
+  console.log('Ready!');
+});
+
+
+// ฟังข้อความ
+client.on('messageCreate', message => {
+  const message_more = ['ไม่เข้าใจค่ะ', '??', 'เอ๋']
+  const hello_messasge = ["สวัสดี","หวัดดี","วัดดี","ทักทาย","ทักครับ","ทักค่ะ","สวัสดีจ้า","หวัดดีจ้า","วัดดีจ้า","สวัสดีวันใหม่","สวัสดีเช้า","สวัสดีบ่าย","สวัสดีเย็น","สวัสดีเพื่อน","สวัสดีคุณ","สวัสดีพี่","สวัสดีน้อง","สวัสดีทุกคน","สวัสดีตัวเอง","สวัสดีวันนี้"]
+  const 
+  
+  
+  
+  
+  
+  // ข้ามข้อความจากบอทเอง
+  if (message.author.bot) return;
+
+  // const variable = ['hello', 'สวัสดี', ]
+  // ตอบกลับคำสั่งที่กำหนด
+
+  for (let i = 0; i < hello_messasge.length; i++) {
+    if (message.content === hello_messasge[i]) {
+      message.reply(hello_messasge[Math.floor(Math.random() * hello_messasge.length)]);
+      break;
+    }else if(){
+
+    }
+    
+    
+    else {
+      message.reply(message_more[Math.floor(Math.random() * message_more.length)]);
+      break;
+    }
+  }
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ใส่ token ของบอทตรง ๆ ที่นี่
+const TOKEN = 'YOUR_TO_KEN';
+client.login(TOKEN);
