@@ -28,6 +28,10 @@ app.get('/webboard/Log_in', (request, response) => {
     response.render('Log_in')
 })
 
+app.get('/webboard/hight-school', (request, response) => {
+    response.render('hight-school')
+})
+
 app.get('/captcha', (request, response) => {
 	let captcha = svgCaptcha.create({size: 5, noise: 3, background: '#fff'})
 	request.session.captcha = captcha.text

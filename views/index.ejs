@@ -17,7 +17,15 @@
         background-repeat: no-repeat;
         font-family: "Noto Sans Thai", sans-serif;
     }
+    .fade-content{
+        animation-name: fade;
+        animation-duration: 2s;
+    }
 
+    @keyframes fade{
+        from { opacity: 0;}
+        to { opacity: 1}
+    }
     a {
         text-decoration: none;
         color: black;
@@ -88,7 +96,7 @@
 
 <body>
     <%- include('layouts/nav') %>
-        <div class="main">      
+        <div class="main fade-content">      
             <div class="container">
                 <div class="index-info">
                     <h1>Welcome to ...</h1>
